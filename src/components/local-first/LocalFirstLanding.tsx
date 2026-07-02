@@ -33,10 +33,12 @@ function getLandingCopy(lang: SiteLang) {
       title: isThai ? "สถานะข้อมูล" : "Data status",
       localOnly: "Local Only",
       cloudOff: "Cloud Backup Off",
-      lastBackup: "Last Backup: Never",
+      lastBackup: isThai ? "สำรองล่าสุด: ยังไม่มี" : "Last Backup: Never",
       cashFlow: isThai ? "กระแสเงินสด" : "Cash flow",
       realProfit: isThai ? "กำไรจริง" : "Real profit",
       month: isThai ? "เดือนนี้" : "This month",
+      records: isThai ? "128 รายการ" : "128 records",
+      cloudValue: isThai ? "ปิด" : "Off",
     },
     sections: [
       {
@@ -87,55 +89,55 @@ export default async function LocalFirstLanding() {
   const copy = getLandingCopy(detectSiteLang())
 
   return (
-    <div className="min-h-screen bg-[#f6f7fb] text-[#111827]">
-      <header className="sticky top-0 z-50 border-b border-black/5 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
-          <LogoFull height={28} className="text-[#111827]" />
-          <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-600 md:flex">
+    <div className="paymap-obsidian-site min-h-screen">
+      <header className="paymap-obsidian-header sticky top-0 z-50">
+        <div className="paymap-obsidian-container flex items-center justify-between gap-4">
+          <LogoFull height={30} className="paymap-obsidian-logo" />
+          <nav className="paymap-obsidian-nav hidden items-center gap-7 text-sm font-semibold md:flex">
             <a href="#privacy">{copy.nav.privacy}</a>
             <a href="#backup">{copy.nav.backup}</a>
             <Link href="/pricing">{copy.nav.pricing}</Link>
           </nav>
           <div className="flex items-center gap-3">
-            <Link href="/login" className="hidden rounded-xl px-4 py-2 text-sm font-bold text-slate-600 sm:inline-flex">{copy.nav.login}</Link>
-            <Link href="/register?mode=personal" className="rounded-xl bg-[#111827] px-5 py-2.5 text-sm font-bold text-white">{copy.nav.start}</Link>
+            <Link href="/login" className="paymap-obsidian-login hidden rounded-xl px-4 py-2 text-sm font-bold sm:inline-flex">{copy.nav.login}</Link>
+            <Link href="/register?mode=personal" className="paymap-obsidian-small-cta rounded-xl px-5 py-2.5 text-sm font-bold">{copy.nav.start}</Link>
           </div>
         </div>
       </header>
 
       <main>
-        <section className="mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-[1fr_.9fr] lg:py-20">
+        <section className="paymap-obsidian-hero paymap-obsidian-container grid gap-10 lg:grid-cols-[1fr_.9fr]">
           <div className="flex flex-col justify-center">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-slate-600">
+            <div className="paymap-obsidian-badge inline-flex w-fit items-center gap-2 rounded-full px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em]">
               <ShieldCheck size={14} /> {copy.hero.badge}
             </div>
-            <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[1.02] tracking-[-0.05em] text-[#111827] md:text-7xl">
+            <h1 className="paymap-obsidian-title mt-7 max-w-4xl text-5xl font-black leading-[1.02] md:text-7xl">
               {copy.hero.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{copy.hero.body}</p>
+            <p className="paymap-obsidian-copy mt-6 max-w-2xl text-lg leading-8">{copy.hero.body}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/download" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#111827] px-7 py-4 text-base font-black text-white">
+              <Link href="/download" className="paymap-obsidian-cta inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 text-base font-black">
                 {copy.hero.primary} <ArrowRight size={18} />
               </Link>
-              <Link href="/desktop" className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-4 text-base font-black text-[#111827]">
+              <Link href="/desktop" className="paymap-obsidian-link inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 text-base font-black">
                 {copy.hero.secondary}
               </Link>
             </div>
-            <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-slate-500"><Lock size={15} /> {copy.hero.note}</p>
+            <p className="paymap-obsidian-note mt-4 flex items-center gap-2 text-sm font-semibold"><Lock size={15} /> {copy.hero.note}</p>
           </div>
 
-          <div className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,.10)]">
-            <div className="rounded-[22px] bg-[#111827] p-6 text-white">
+          <div className="paymap-obsidian-preview-shell rounded-[28px] p-5">
+            <div className="paymap-obsidian-preview-title rounded-[22px] p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">{copy.preview.title}</div>
+                  <div className="text-xs font-black uppercase tracking-[0.18em]">{copy.preview.title}</div>
                   <div className="mt-2 text-2xl font-black">PayMap Local</div>
                 </div>
                 <Wallet size={28} />
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
                 {[copy.preview.localOnly, copy.preview.cloudOff, copy.preview.lastBackup].map((label) => (
-                  <span key={label} className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white">{label}</span>
+                  <span key={label} className="paymap-obsidian-pill rounded-full px-3 py-1 text-xs font-bold">{label}</span>
                 ))}
               </div>
             </div>
@@ -143,11 +145,11 @@ export default async function LocalFirstLanding() {
               {[
                 [copy.preview.cashFlow, "+฿18,450", "#059669"],
                 [copy.preview.realProfit, "฿42,180", "#4f46e5"],
-                [copy.preview.month, "128 records", "#d97706"],
-                ["Cloud", "Off", "#64748b"],
+                [copy.preview.month, copy.preview.records, "#d97706"],
+                ["Cloud", copy.preview.cloudValue, "#64748b"],
               ].map(([label, value, color]) => (
-                <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                  <div className="text-xs font-black uppercase tracking-[0.14em] text-slate-500">{label}</div>
+                <div key={label} className="paymap-obsidian-stat rounded-2xl p-5">
+                  <div className="text-xs font-black uppercase tracking-[0.14em]">{label}</div>
                   <div className="mt-3 text-3xl font-black" style={{ color }}>{value}</div>
                 </div>
               ))}
@@ -155,28 +157,28 @@ export default async function LocalFirstLanding() {
           </div>
         </section>
 
-        <section id="privacy" className="border-y border-slate-200 bg-white py-16">
-          <div className="mx-auto grid max-w-7xl gap-5 px-5 md:grid-cols-2 lg:grid-cols-4">
+        <section id="privacy" className="paymap-obsidian-section py-16">
+          <div className="paymap-obsidian-container grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {copy.sections.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-[#111827]"><Icon size={20} /></div>
-                <h2 className="mt-5 text-lg font-black text-[#111827]">{title}</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{body}</p>
+              <div key={title} className="paymap-obsidian-card rounded-2xl p-6">
+                <div className="paymap-obsidian-card-icon flex h-11 w-11 items-center justify-center rounded-xl"><Icon size={20} /></div>
+                <h2 className="mt-5 text-lg font-black">{title}</h2>
+                <p className="mt-3 text-sm leading-7">{body}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="backup" className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[.85fr_1.15fr]">
+        <section id="backup" className="paymap-obsidian-flow paymap-obsidian-container grid gap-10 lg:grid-cols-[.85fr_1.15fr]">
           <div>
-            <div className="text-sm font-black uppercase tracking-[0.18em] text-[#4f46e5]">Local-first flow</div>
+            <div className="paymap-obsidian-kicker text-sm font-black uppercase tracking-[0.18em]">Local-first flow</div>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em]">{copy.flow.title}</h2>
-            <p className="mt-4 text-base leading-8 text-slate-600">{copy.flow.body}</p>
+            <p className="paymap-obsidian-copy mt-4 text-base leading-8">{copy.flow.body}</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {copy.flow.steps.map((step, index) => (
-              <div key={step} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <div className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">Step {index + 1}</div>
+              <div key={step} className="paymap-obsidian-card rounded-2xl p-6">
+                <div className="text-xs font-black uppercase tracking-[0.18em]">Step {index + 1}</div>
                 <div className="mt-3 flex items-center gap-3 text-lg font-black">
                   {index === 0 ? <Wallet size={20} /> : index === 1 ? <HardDrive size={20} /> : index === 2 ? <Upload size={20} /> : <Download size={20} />}
                   {step}
