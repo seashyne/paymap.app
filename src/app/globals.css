@@ -2610,6 +2610,230 @@ body {
   }
 }
 
+.local-dashboard-shell {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 280px minmax(0, 1fr);
+  background: #0b0d10;
+  color: #f7f3ea;
+}
+
+.local-dashboard-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  height: 100vh;
+  min-width: 0;
+  flex-direction: column;
+  gap: 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: #11161c;
+  padding: 24px 16px;
+}
+
+.local-dashboard-brand {
+  display: inline-flex;
+  color: #f7f3ea;
+}
+
+.local-dashboard-sidebar-card,
+.local-dashboard-sidebar-footer {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 16px;
+}
+
+.local-dashboard-sidebar-card h2 {
+  margin-top: 8px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 950;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.local-dashboard-sidebar-card p {
+  margin-top: 12px;
+  color: #aeb8c6;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.local-dashboard-eyebrow {
+  color: #93c5fd;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.local-dashboard-nav {
+  display: grid;
+  gap: 6px;
+}
+
+.local-dashboard-nav a {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #c7d2e1;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.local-dashboard-nav a:hover {
+  background: rgba(255, 255, 255, 0.055);
+  color: #fff;
+}
+
+.local-dashboard-nav a.active {
+  border-color: rgba(96, 165, 250, 0.26);
+  background: rgba(96, 165, 250, 0.12);
+  color: #f7f3ea;
+}
+
+.local-dashboard-sidebar-footer {
+  margin-top: auto;
+  display: grid;
+  gap: 12px;
+}
+
+.local-dashboard-sidebar-footer strong {
+  display: block;
+  margin-top: 5px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.local-dashboard-workspace {
+  min-width: 0;
+}
+
+.local-dashboard-topbar {
+  display: flex;
+  min-height: 122px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(11, 13, 16, 0.92);
+  padding: 24px 40px;
+}
+
+.local-dashboard-title {
+  min-width: 0;
+}
+
+.local-dashboard-title span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.local-dashboard-title h1 {
+  margin-top: 10px;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.local-dashboard-title p {
+  margin-top: 10px;
+  max-width: 620px;
+  color: #aeb8c6;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.local-dashboard-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.local-dashboard-status span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #dbe7f5;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.local-dashboard-content {
+  padding: 32px 40px 56px;
+}
+
+@media (max-width: 1020px) {
+  .local-dashboard-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .local-dashboard-sidebar {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .local-dashboard-sidebar-card,
+  .local-dashboard-sidebar-footer {
+    display: none;
+  }
+
+  .local-dashboard-nav {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .local-dashboard-nav a {
+    white-space: nowrap;
+  }
+
+  .local-dashboard-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .local-dashboard-status {
+    justify-content: flex-start;
+  }
+
+  .local-dashboard-content {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .local-dashboard-sidebar {
+    padding: 18px 12px;
+  }
+
+  .local-dashboard-topbar,
+  .local-dashboard-content {
+    padding: 18px 12px;
+  }
+}
+
 @media (max-width: 640px) {
   .paymap-login-topbar {
     min-height: auto;

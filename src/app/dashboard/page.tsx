@@ -1,10 +1,11 @@
-import AppFrame from "@/components/layout/AppFrame"
-import { BarChart3, CreditCard, LayoutGrid, Settings, Wallet } from "lucide-react"
+import Link from "next/link"
+import { Download, HardDrive, LayoutGrid, Settings, ShieldCheck, Wallet } from "lucide-react"
 import { requireModePage } from "@/lib/authz"
 import { prisma } from "@/lib/prisma"
 import { getCurrentPlan } from "@/lib/subscription/current-plan"
-import { PersonalCuratorSurface } from "@/components/curator/MainSurfaces"
 import CleanMoneyDashboard from "@/components/local-first/CleanMoneyDashboard"
+import { LogoFull, LogoIcon } from "@/components/ui/Logo"
+import LogoutButton from "@/components/auth/LogoutButton"
 
 export default async function DashboardPage() {
   const user = await requireModePage("personal")
@@ -37,33 +38,63 @@ export default async function DashboardPage() {
     { id: "demo-sub", date: "Jun 25", note: "Cloud subscription", category: "Subscriptions", status: "review", amount: formatMoney(420) },
   ]
 
+  const plan = String(getCurrentPlan(user, "personal"))
+
   return (
-    <AppFrame
-      brand="PayMap"
-      icon="◈"
-      version="PayMap 15 · Personal"
-      title="Your money cockpit"
-      subtitle="See your money clearly, spot what changed, and stay in control from one personal workspace"
-      accent="#8b5cf6"
-      planLabel={String(getCurrentPlan(user, "personal"))}
-      accountMode="personal"
-      nav={[
-        { href: "/dashboard", label: "Overview", icon: LayoutGrid, accent: "#8b5cf6", active: true },
-        { href: "/wallets", label: "Wallets", icon: Wallet, accent: "#8b5cf6", active: false },
-        { href: "/analytics", label: "Analytics", icon: BarChart3, accent: "#14b8a6", active: false },
-        { href: "/billing", label: "Billing", icon: CreditCard, accent: "#22c55e", active: false },
-        { href: "/settings", label: "Settings", icon: Settings, accent: "#f59e0b", active: false },
-      ]}
-    >
-      <CleanMoneyDashboard
-        userName={user.name ?? "Curator"}
-        totalBalance={formatMoney(balance)}
-        walletCount={String(walletCount)}
-        income={formatMoney(income)}
-        expense={formatMoney(expense)}
-        rows={rows.length ? rows : demoRows}
-        isDemo={!rows.length}
-      />
-    </AppFrame>
+    <div className="local-dashboard-shell">
+      <aside className="local-dashboard-sidebar">
+        <Link href="/" className="local-dashboard-brand" aria-label="PayMap home">
+          <LogoFull height={32} />
+        </Link>
+
+        <div className="local-dashboard-sidebar-card">
+          <div className="local-dashboard-eyebrow">PayMap Local</div>
+          <h2>Private money dashboard</h2>
+          <p>ข้อมูลอยู่ในเครื่องเป็นค่าเริ่มต้น และ Cloud Backup ปิดอยู่จนกว่าคุณจะเปิดเอง</p>
+        </div>
+
+        <nav className="local-dashboard-nav" aria-label="PayMap dashboard">
+          <Link href="/dashboard" className="active"><LayoutGrid size={17} /> Dashboard</Link>
+          <Link href="/wallets"><Wallet size={17} /> Wallets</Link>
+          <Link href="/settings?tab=data"><ShieldCheck size={17} /> Privacy & Data</Link>
+          <Link href="/desktop"><Download size={17} /> Windows app</Link>
+          <Link href="/settings"><Settings size={17} /> Settings</Link>
+        </nav>
+
+        <div className="local-dashboard-sidebar-footer">
+          <div>
+            <div className="local-dashboard-eyebrow">Plan</div>
+            <strong>{plan}</strong>
+          </div>
+          <LogoutButton />
+        </div>
+      </aside>
+
+      <div className="local-dashboard-workspace">
+        <header className="local-dashboard-topbar">
+          <div className="local-dashboard-title">
+            <span><LogoIcon size={18} /> Local-first money dashboard</span>
+            <h1>Your private money dashboard</h1>
+            <p>Track income, expenses, cash flow, and real profit. Best on Windows, usable on web.</p>
+          </div>
+          <div className="local-dashboard-status">
+            <span><HardDrive size={14} /> Local Only</span>
+            <span>Cloud Backup Off</span>
+          </div>
+        </header>
+
+        <main className="local-dashboard-content">
+          <CleanMoneyDashboard
+            userName={user.name ?? "Curator"}
+            totalBalance={formatMoney(balance)}
+            walletCount={String(walletCount)}
+            income={formatMoney(income)}
+            expense={formatMoney(expense)}
+            rows={rows.length ? rows : demoRows}
+            isDemo={!rows.length}
+          />
+        </main>
+      </div>
+    </div>
   )
 }
