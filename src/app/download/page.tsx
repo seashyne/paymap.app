@@ -6,15 +6,20 @@ import { detectSiteLang } from "@/lib/i18n/site"
 export const revalidate = 3600
 export const metadata = { title: "Download — PayMap" }
 
-export default function DownloadPage({ searchParams }: { searchParams?: { desktop?: string; from?: string } }) {
+export default function DownloadPage({ searchParams }: { searchParams?: { desktop?: string; legacy?: string; from?: string } }) {
   const lang = detectSiteLang()
   const blocked = searchParams?.desktop === "1"
+  const legacySaas = searchParams?.legacy === "saas"
   const from = searchParams?.from || "/"
   const isThai = lang === "th"
   const isLao = lang === "lo"
 
   const copy = {
-    eyebrow: blocked
+    eyebrow: legacySaas
+      ? isThai
+        ? "PayMap เปลี่ยนทิศทางแล้ว"
+        : "PayMap has changed direction"
+      : blocked
       ? isThai
         ? "ใช้งานบนคอมพิวเตอร์เท่านั้น"
         : isLao
@@ -25,7 +30,11 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
         : isLao
           ? "PayMap desktop workspace"
           : "PayMap desktop workspace",
-    title: blocked
+    title: legacySaas
+      ? isThai
+        ? "ระบบ SaaS เก่าถูกปิดแล้ว"
+        : "The old SaaS pages are closed"
+      : blocked
       ? isThai
         ? "PayMap ใช้งานได้เฉพาะบน PC / Laptop"
         : isLao
@@ -36,7 +45,11 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
         : isLao
           ? "Download PayMap Desktop for Windows"
           : "Download PayMap Desktop for Windows",
-    description: blocked
+    description: legacySaas
+      ? isThai
+        ? "PayMap ใหม่โฟกัสแอป Windows แบบ local-first สำหรับติดตามรายรับ รายจ่าย กระแสเงินสด และกำไรจริง เว็บนี้ใช้สำหรับดาวน์โหลด ราคา เอกสาร และบัญชี Cloud Backup เท่านั้น"
+        : "The new PayMap focuses on a local-first Windows app for income, expenses, cash flow, and real profit. This website is for downloads, pricing, docs, and Cloud Backup accounts."
+      : blocked
       ? isThai
         ? "PayMap ใช้งานจริงผ่านแอป Windows เพื่อให้ local vault, export/import และการทำงาน offline ชัดเจนกว่าเว็บ หากเปิดจากโทรศัพท์หรือ iPad จะถูกพามาหน้านี้"
         : "PayMap's real workspace runs in the Windows app so local vaults, export/import, and offline use stay clear. Phones and tablets are redirected here."
@@ -47,19 +60,19 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
     back: isThai ? "กลับไปหน้าที่พยายามเปิด" : "Back to the page you tried to open",
     whyTitle: isThai ? "ทำไมต้องเน้น Windows app" : "Why the Windows app comes first",
     whyBody: isThai
-      ? "PayMap เป็น private money dashboard ที่ข้อมูลอยู่กับคุณ การทำเป็นแอป Windows ทำให้ storage, backup, offline และไฟล์ .paymap.json เข้าใจง่ายกว่าเว็บที่ต้องผูกกับ login"
-      : "PayMap is a private money dashboard where your data stays with you. A Windows app makes storage, backups, offline use, and .paymap.json files clearer than a login-first web app.",
+      ? "PayMap เป็น private money dashboard ที่ข้อมูลอยู่กับคุณ การทำเป็นแอป Windows ทำให้ storage, backup, offline และไฟล์ .paymap เข้าใจง่ายกว่าเว็บที่ต้องผูกกับ login"
+      : "PayMap is a private money dashboard where your data stays with you. A Windows app makes storage, backups, offline use, and .paymap files clearer than a login-first web app.",
     points: isThai
       ? [
           ["Local vault ชัดเจน", "ข้อมูลการเงินทำงานบนเครื่องเป็นค่าเริ่มต้น และ Cloud Backup ไม่เปิดเอง"],
           ["Offline ใช้งานจริง", "เปิดแอปเพื่อบันทึกรายรับ รายจ่าย และดู cash flow ได้โดยไม่ต้องพึ่งเว็บตลอดเวลา"],
-          ["Backup ง่าย", "Export/Import ไฟล์ .paymap.json ได้เอง และย้ายเครื่องได้เมื่อพร้อม"],
+          ["Backup ง่าย", "Export/Import ไฟล์ .paymap เข้ารหัสได้เอง และย้ายเครื่องได้เมื่อพร้อม"],
           ["เว็บไม่ทำให้สับสน", "เว็บเหลือหน้าที่ดาวน์โหลด ราคา เอกสาร และบัญชี Cloud Backup เท่านั้น"],
         ]
       : [
           ["Clear local vault", "Financial data stays on the device by default, and Cloud Backup never turns itself on."],
           ["Real offline use", "Open the app to record income, expenses, and cash flow without depending on the web."],
-          ["Simple backups", "Export/import portable .paymap.json files and move devices when you are ready."],
+          ["Simple backups", "Export/import encrypted .paymap files and move devices when you are ready."],
           ["Less web confusion", "The website stays focused on downloads, pricing, docs, and Cloud Backup accounts."],
         ],
   }
@@ -86,8 +99,8 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
           <h2 className="text-3xl font-black text-[var(--text)]">{isThai ? "เว็บคือหน้าดาวน์โหลด แอป Windows คือตัวทำงานจริง" : "The website is for downloads. The Windows app is the real workspace."}</h2>
           <p className="text-sm leading-7 text-[var(--text-2)]">
             {isThai
-              ? "เวอร์ชัน Desktop เปิด local vault สำหรับบันทึกรายรับ รายจ่าย กระแสเงินสด กำไรจริง และสำรองข้อมูลเป็น .paymap.json โดยไม่ต้องอัปโหลดข้อมูลขึ้น cloud ตั้งแต่แรก"
-              : "The Desktop app opens a local vault for income, expenses, cash flow, real profit, and portable .paymap.json backups without uploading financial data by default."}
+              ? "เวอร์ชัน Desktop เปิด local vault สำหรับบันทึกรายรับ รายจ่าย กระแสเงินสด กำไรจริง และสำรองข้อมูลเป็น .paymap โดยไม่ต้องอัปโหลดข้อมูลขึ้น cloud ตั้งแต่แรก"
+              : "The Desktop app opens a local vault for income, expenses, cash flow, real profit, and encrypted .paymap backups without uploading financial data by default."}
           </p>
           <div className="grid gap-3 md:grid-cols-2">
             {(isThai
@@ -125,7 +138,7 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
             href: '/desktop',
             cta: 'Open preview',
           }, {
-            title: '.paymap.json backups',
+            title: '.paymap vaults',
             desc: 'ส่งออก นำเข้า และย้ายข้อมูลการเงินส่วนตัวโดยไม่ต้องเปิด Cloud Backup',
             icon: Download,
             href: '/desktop',

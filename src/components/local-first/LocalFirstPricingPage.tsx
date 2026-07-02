@@ -11,8 +11,8 @@ const plans = [
     price: "Free",
     icon: HardDrive,
     color: "#059669",
-    description: "Private money dashboard on this device. Export/import .paymap.json anytime.",
-    features: ["Income and expense tracking", "Cash flow dashboard", "Real profit view", "Local-only storage by default", ".paymap.json export/import"],
+    description: "Private money dashboard on this device. Export/import encrypted .paymap vaults anytime.",
+    features: ["Income and expense tracking", "Cash flow dashboard", "Real profit view", "Local-only storage by default", ".paymap export/import"],
   },
   {
     key: "cloud-backup",
@@ -39,8 +39,8 @@ const plans = [
     price: "฿299/mo",
     icon: Store,
     color: "#dc2626",
-    description: "For shops that need local-first sales records plus optional cloud backup.",
-    features: ["Local-first shop dashboard", "Sales and cash flow backup", "Inventory backup", "Optional cloud restore", "No cloud upload by default"],
+    description: "For small shop owners who want a private cash-flow view plus optional cloud backup.",
+    features: ["Local-first shop cash flow", "Daily sales notes", "Expense and profit backup", "Optional cloud restore", "No cloud upload by default"],
   },
   {
     key: "supporter",
@@ -75,7 +75,7 @@ export default async function LocalFirstPricingPage() {
         <section className="grid gap-4 lg:grid-cols-3">
           {[
             ["Default", "Local Only", "No financial data upload unless you enable Cloud Backup."],
-            ["Backup", "Optional", "Export .paymap.json anytime. Cloud backup requires explicit confirmation."],
+            ["Backup", "Optional", "Export .paymap anytime. Cloud backup requires explicit confirmation."],
             ["Control", "Delete paths", "Delete local data and clear cloud backup status from Privacy & Data settings."],
           ].map(([label, title, body]) => (
             <div key={label} className="public-panel-v72">

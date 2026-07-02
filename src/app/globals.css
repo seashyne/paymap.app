@@ -3289,11 +3289,232 @@ body {
   color: #a78bfa;
 }
 
+.paymap-obsidian-long-section {
+  padding-block: 92px;
+}
+
+.paymap-obsidian-row-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border: 1px solid #322f2c;
+  border-radius: 18px;
+  background: rgba(23, 22, 21, 0.86);
+  padding: 18px;
+  color: #f4f1ec;
+}
+
+.paymap-obsidian-row-card svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: #a78bfa;
+}
+
+.paymap-obsidian-row-card strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.paymap-obsidian-row-card p {
+  margin-top: 5px;
+  color: #9d968e;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.paymap-obsidian-terminal {
+  overflow: hidden;
+  border: 1px solid #33302d;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #242321, #151514);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+}
+
+.paymap-obsidian-terminal-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #33302d;
+  padding: 16px 18px;
+  color: #a8a29e;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.paymap-obsidian-terminal-top span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #3f3b37;
+}
+
+.paymap-obsidian-terminal-top strong {
+  margin-left: 8px;
+}
+
+.paymap-obsidian-terminal-body {
+  padding: 28px;
+}
+
+.paymap-obsidian-vault-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.12);
+  color: #ddd6fe;
+  padding: 9px 13px;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.paymap-obsidian-vault-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.paymap-obsidian-vault-grid div,
+.paymap-obsidian-feature-card,
+.paymap-obsidian-price-row,
+.paymap-obsidian-faq-card {
+  border: 1px solid #322f2c;
+  background: #171615;
+}
+
+.paymap-obsidian-vault-grid div {
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.paymap-obsidian-vault-grid span {
+  display: block;
+  color: #8f8982;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.paymap-obsidian-vault-grid strong {
+  display: block;
+  margin-top: 10px;
+  color: #f4f1ec;
+  font-size: 18px;
+}
+
+.paymap-obsidian-feature-card {
+  min-height: 210px;
+  border-radius: 22px;
+  padding: 28px;
+  color: #f4f1ec;
+}
+
+.paymap-obsidian-feature-number {
+  color: #a78bfa;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+}
+
+.paymap-obsidian-feature-card h3 {
+  margin-top: 34px;
+  font-size: 24px;
+  font-weight: 950;
+}
+
+.paymap-obsidian-feature-card p {
+  margin-top: 12px;
+  color: #9d968e;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.paymap-obsidian-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 22px;
+  padding: 24px;
+  color: #f4f1ec;
+}
+
+.paymap-obsidian-price-row h3 {
+  font-size: 22px;
+  font-weight: 950;
+}
+
+.paymap-obsidian-price-row p {
+  margin-top: 8px;
+  color: #9d968e;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.paymap-obsidian-price-row strong {
+  flex: 0 0 auto;
+  color: #ddd6fe;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.paymap-obsidian-faq-card {
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.paymap-obsidian-faq-card h3 {
+  color: #f4f1ec;
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.paymap-obsidian-faq-card p {
+  margin-top: 10px;
+  color: #9d968e;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.paymap-obsidian-final {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-block: 86px 110px;
+}
+
+.paymap-obsidian-final h2 {
+  max-width: 700px;
+  color: #f6f4f1;
+  font-size: clamp(34px, 4vw, 58px);
+  font-weight: 950;
+  line-height: 1.05;
+}
+
+.paymap-obsidian-final p {
+  max-width: 620px;
+  margin-top: 18px;
+  color: #9d968e;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
 @media (max-width: 1024px) {
   .paymap-obsidian-hero {
     grid-template-columns: 1fr;
     min-height: auto;
     padding-block: 56px;
+  }
+
+  .paymap-obsidian-final {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
@@ -3313,6 +3534,20 @@ body {
   .paymap-obsidian-cta,
   .paymap-obsidian-link {
     width: 100%;
+  }
+
+  .paymap-obsidian-long-section {
+    padding-block: 62px;
+  }
+
+  .paymap-obsidian-vault-grid,
+  .paymap-obsidian-price-row {
+    grid-template-columns: 1fr;
+  }
+
+  .paymap-obsidian-price-row {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 

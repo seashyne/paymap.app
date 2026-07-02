@@ -48,8 +48,8 @@ function getLandingCopy(lang: SiteLang) {
       },
       {
         icon: FileJson,
-        title: isThai ? "Export/Import เป็น .paymap.json" : "Portable .paymap.json backups",
-        body: isThai ? "ส่งออกไฟล์สำรอง อ่านกลับ และย้ายเครื่องได้โดยไม่ต้องเปิด cloud" : "Export, import, and move your money data without turning cloud features on.",
+        title: isThai ? "Export/Import เป็น .paymap" : "Encrypted .paymap vaults",
+        body: isThai ? "ส่งออกไฟล์เข้ารหัส อ่านกลับ และย้ายเครื่องได้โดยไม่ต้องเปิด cloud" : "Export, import, and move your encrypted money vault without turning cloud features on.",
       },
       {
         icon: Cloud,
@@ -66,8 +66,81 @@ function getLandingCopy(lang: SiteLang) {
       title: isThai ? "เริ่มจากสิ่งที่สำคัญกับเงินของคุณ" : "Start with the money picture that matters.",
       body: isThai ? "PayMap โฟกัส dashboard ที่ตอบคำถามง่าย ๆ: เงินเข้าเท่าไร เงินออกเท่าไร เหลือจริงเท่าไร และกำไรจริงคืออะไร" : "PayMap focuses on simple questions: what came in, what went out, what is left, and what your real profit is.",
       steps: isThai
-        ? ["เลือกใช้เพื่ออะไร", "เลือก Local Only เป็นค่าเริ่มต้น", "นำเข้าหรือบันทึกรายการ", "Export .paymap.json เมื่ออยากสำรอง"]
-        : ["Choose your use case", "Keep Local Only by default", "Import or enter money records", "Export .paymap.json when you want a backup"],
+        ? ["เลือกใช้เพื่ออะไร", "เลือก Local Only เป็นค่าเริ่มต้น", "นำเข้าหรือบันทึกรายการ", "Export .paymap เมื่ออยากสำรอง"]
+        : ["Choose your use case", "Keep Local Only by default", "Import or enter money records", "Export .paymap when you want a backup"],
+    },
+    desktop: {
+      kicker: isThai ? "Windows-first product" : "Windows-first product",
+      title: isThai ? "เว็บคือหน้าร้าน แอป Windows คือที่ทำงานจริง" : "The website is the front door. The Windows app is the real workspace.",
+      body: isThai
+        ? "PayMap ไม่ควรทำให้ผู้ใช้สับสนว่าเงินอยู่บนเว็บหรืออยู่ในเครื่อง ดังนั้นเว็บจะเน้นดาวน์โหลด ราคา เอกสาร และบัญชี Cloud Backup ส่วนการบันทึกและดูข้อมูลเงินจริงอยู่ในแอป"
+        : "PayMap should not make people wonder whether their money data lives on the web or on their device. The website focuses on downloads, pricing, docs, and Cloud Backup accounts; the app handles real money work.",
+      points: isThai
+        ? [
+            ["Local vault", "เปิดแอปแล้วข้อมูลการเงินเริ่มจากเครื่องคุณ"],
+            ["Offline habit", "บันทึกรายการและดูภาพรวมได้โดยไม่ต้องผูกกับ login ก่อน"],
+            ["Clear backup", "Cloud Backup เปิดเมื่อผู้ใช้ยืนยันเองเท่านั้น"],
+          ]
+        : [
+            ["Local vault", "Open the app and financial data starts on your device."],
+            ["Offline habit", "Record entries and review the picture without needing login first."],
+            ["Clear backup", "Cloud Backup turns on only after explicit confirmation."],
+          ],
+    },
+    useCases: {
+      kicker: isThai ? "สร้างมาเพื่อเงินส่วนตัว" : "Built for personal money",
+      title: isThai ? "ใช้งานจริงทุกวันโดยไม่ต้องเป็นระบบบัญชีหนัก ๆ" : "Daily money work without heavy accounting software.",
+      items: isThai
+        ? [
+            ["รายรับรายจ่าย", "บันทึกเงินเข้าออกให้เร็ว เห็นยอดคงเหลือและ cash flow ทันที"],
+            ["กำไรจริง", "แยกเงินเข้า รายจ่าย และผลลัพธ์จริงของเดือนนี้"],
+            ["หลายกระเป๋าเงิน", "ติดตามบัญชีธนาคาร เงินสด และกระเป๋าเฉพาะกิจในที่เดียว"],
+            ["สำรองเองได้", "Export .paymap เพื่อเก็บไว้ใน drive ส่วนตัวหรือย้ายเครื่อง"],
+          ]
+        : [
+            ["Income and expenses", "Capture money in and out quickly, then see balance and cash flow."],
+            ["Real profit", "Separate inflow, spending, and the real result of the month."],
+            ["Multiple wallets", "Track bank accounts, cash, and purpose-based wallets in one place."],
+            ["Portable backups", "Export .paymap files to your own drive or move devices."],
+          ],
+    },
+    pricingPreview: {
+      kicker: isThai ? "ราคาแบบไม่บังคับ cloud" : "Pricing without forced cloud",
+      title: isThai ? "เริ่มฟรีบนเครื่อง แล้วจ่ายเมื่ออยากสำรองหรือ sync" : "Start free on device. Pay only when you want backup or sync.",
+      plans: isThai
+        ? [
+            ["Free Local", "ใช้บนเครื่องเดียว Export/Import เอง", "ฟรี"],
+            ["Cloud Backup", "สำรองข้อมูลเข้ารหัสแบบ optional", "จ่ายเมื่อเปิดใช้"],
+            ["Cloud Sync", "ซิงก์หลายเครื่องเมื่อพร้อม", "สำหรับผู้ใช้จริงจัง"],
+          ]
+        : [
+            ["Free Local", "Use one device and export/import your own backups.", "Free"],
+            ["Cloud Backup", "Optional encrypted backup when you turn it on.", "Paid when enabled"],
+            ["Cloud Sync", "Sync across devices when you are ready.", "For serious use"],
+          ],
+    },
+    faq: {
+      kicker: isThai ? "คำถามที่ต้องตอบให้ชัด" : "Clear answers",
+      title: isThai ? "หน้าเว็บต้องทำให้คนเข้าใจทันทีว่า PayMap ทำงานยังไง" : "The website should make PayMap obvious in one scroll.",
+      items: isThai
+        ? [
+            ["ต้อง login ไหม", "ไม่ต้องสำหรับการใช้งาน local บน Windows app. Login ใช้กับ Cloud Backup, Sync และบัญชีเท่านั้น"],
+            ["ข้อมูลอยู่ไหน", "อยู่ในเครื่องเป็นค่าเริ่มต้น จนกว่าคุณจะเปิด Cloud Backup เอง"],
+            ["เว็บใช้ทำอะไร", "เว็บใช้ดาวน์โหลด ดูราคา อ่านเอกสาร และจัดการบัญชี cloud"],
+            ["ถ้าเปลี่ยนเครื่องทำไง", "Export ไฟล์ .paymap แล้ว import ที่เครื่องใหม่ หรือเปิด Cloud Backup เมื่อพร้อม"],
+          ]
+        : [
+            ["Do I need to log in?", "Not for local use in the Windows app. Login is for Cloud Backup, Sync, and account features."],
+            ["Where is my data?", "On your device by default unless you explicitly enable Cloud Backup."],
+            ["What is the website for?", "Downloads, pricing, docs, and cloud account management."],
+            ["How do I move devices?", "Export a .paymap file and import it on the new device, or enable Cloud Backup when ready."],
+          ],
+    },
+    finalCta: {
+      title: isThai ? "เริ่มจากแอป Windows ที่ข้อมูลอยู่กับคุณ" : "Start with the Windows app where your data stays with you.",
+      body: isThai ? "ดูตัวอย่างใน browser ได้ แต่ประสบการณ์ที่ PayMap ควรขายจริงคือแอป Windows แบบ local-first" : "You can preview it in the browser, but the product PayMap should sell is the local-first Windows app.",
+      download: isThai ? "ดาวน์โหลด Windows" : "Download Windows",
+      preview: isThai ? "ดูตัวอย่างแอป" : "Preview app",
     },
   }
 }
@@ -75,14 +148,16 @@ function getLandingCopy(lang: SiteLang) {
 export default async function LocalFirstLanding() {
   const session = await getCurrentSession()
   if (session?.sub) {
+    const accountMode = session.accountMode ?? session.workspaceMode
+    if (accountMode === "business" || accountMode === "merchant") redirect("/dashboard")
+
     try {
       const currentUser = await prisma.user.findUnique({ where: { id: session.sub }, select: { uiPreferences: true } })
       const prefs = mergeUiPreferences(currentUser?.uiPreferences)
       redirect(getModeAwareDefaultPageHref(prefs.defaultPage, session.accountMode))
     } catch (error) {
       console.error("HomePage redirect fallback: failed to load user preferences", error)
-      const fallbackMode = session.accountMode ?? "personal"
-      redirect(fallbackMode === "business" ? "/business" : fallbackMode === "merchant" ? "/merchant" : "/dashboard")
+      redirect("/dashboard")
     }
   }
 
@@ -185,6 +260,118 @@ export default async function LocalFirstLanding() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="paymap-obsidian-long-section paymap-obsidian-container grid gap-10 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <div className="paymap-obsidian-kicker text-sm font-black uppercase tracking-[0.18em]">{copy.desktop.kicker}</div>
+            <h2 className="mt-3 text-4xl font-black leading-tight">{copy.desktop.title}</h2>
+            <p className="paymap-obsidian-copy mt-5 text-base leading-8">{copy.desktop.body}</p>
+            <div className="mt-7 grid gap-3">
+              {copy.desktop.points.map(([title, body]) => (
+                <div key={title} className="paymap-obsidian-row-card">
+                  <ShieldCheck size={18} />
+                  <div>
+                    <strong>{title}</strong>
+                    <p>{body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="paymap-obsidian-terminal">
+            <div className="paymap-obsidian-terminal-top">
+              <span />
+              <span />
+              <span />
+              <strong>PayMap Windows</strong>
+            </div>
+            <div className="paymap-obsidian-terminal-body">
+              <div className="paymap-obsidian-vault-line"><HardDrive size={16} /> Local vault active</div>
+              <div className="paymap-obsidian-vault-grid">
+                <div><span>Storage</span><strong>On this device</strong></div>
+                <div><span>Cloud Backup</span><strong>Off</strong></div>
+                <div><span>Export</span><strong>.paymap</strong></div>
+                <div><span>Mode</span><strong>Offline ready</strong></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="paymap-obsidian-section py-20">
+          <div className="paymap-obsidian-container">
+            <div className="max-w-2xl">
+              <div className="paymap-obsidian-kicker text-sm font-black uppercase tracking-[0.18em]">{copy.useCases.kicker}</div>
+              <h2 className="mt-3 text-4xl font-black leading-tight">{copy.useCases.title}</h2>
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {copy.useCases.items.map(([title, body], index) => (
+                <article key={title} className="paymap-obsidian-feature-card">
+                  <div className="paymap-obsidian-feature-number">{String(index + 1).padStart(2, "0")}</div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="paymap-obsidian-long-section paymap-obsidian-container">
+          <div className="grid gap-10 lg:grid-cols-[.85fr_1.15fr]">
+            <div>
+              <div className="paymap-obsidian-kicker text-sm font-black uppercase tracking-[0.18em]">{copy.pricingPreview.kicker}</div>
+              <h2 className="mt-3 text-4xl font-black leading-tight">{copy.pricingPreview.title}</h2>
+              <div className="mt-8">
+                <Link href="/pricing" className="paymap-obsidian-link inline-flex items-center gap-2 text-base font-black">
+                  {copy.nav.pricing} <ArrowRight size={17} />
+                </Link>
+              </div>
+            </div>
+            <div className="grid gap-4">
+              {copy.pricingPreview.plans.map(([name, body, price]) => (
+                <article key={name} className="paymap-obsidian-price-row">
+                  <div>
+                    <h3>{name}</h3>
+                    <p>{body}</p>
+                  </div>
+                  <strong>{price}</strong>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="paymap-obsidian-section py-20">
+          <div className="paymap-obsidian-container grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+            <div>
+              <div className="paymap-obsidian-kicker text-sm font-black uppercase tracking-[0.18em]">{copy.faq.kicker}</div>
+              <h2 className="mt-3 text-4xl font-black leading-tight">{copy.faq.title}</h2>
+            </div>
+            <div className="grid gap-4">
+              {copy.faq.items.map(([question, answer]) => (
+                <article key={question} className="paymap-obsidian-faq-card">
+                  <h3>{question}</h3>
+                  <p>{answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="paymap-obsidian-final paymap-obsidian-container">
+          <div>
+            <h2>{copy.finalCta.title}</h2>
+            <p>{copy.finalCta.body}</p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link href="/download" className="paymap-obsidian-cta inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 text-base font-black">
+              {copy.finalCta.download} <Download size={18} />
+            </Link>
+            <Link href="/desktop" className="paymap-obsidian-link inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 text-base font-black">
+              {copy.finalCta.preview}
+            </Link>
           </div>
         </section>
       </main>
