@@ -79,6 +79,12 @@ export default function QuickAdd() {
     return () => document.removeEventListener("keydown", handler)
   }, [])
 
+  useEffect(() => {
+    const openQuickAdd = () => setOpen(true)
+    window.addEventListener("paymap:quick-add-open", openQuickAdd)
+    return () => window.removeEventListener("paymap:quick-add-open", openQuickAdd)
+  }, [])
+
   return (
     <>
       {/* Floating button */}
@@ -91,17 +97,10 @@ export default function QuickAdd() {
             : "linear-gradient(135deg, #8b5cf6, #38bdf8)",
           transform: open ? "rotate(45deg)" : "scale(1)",
         }}
-        title="เพิ่มรายการ (กด N)"
+        title="เพิ่มรายการ"
       >
         {open ? <X size={20} className="text-[var(--text)]" /> : <Plus size={22} className="text-white" />}
       </button>
-
-      {/* Tooltip hint */}
-      {!open && (
-        <div className="fixed bottom-[4.5rem] right-6 z-40 rounded-xl bg-[var(--card)] border border-[var(--border)] px-2 py-1 text-[9px] text-[var(--text-3)] opacity-0 pointer-events-none select-none font-mono">
-          N
-        </div>
-      )}
 
       {/* Drawer */}
       {open && (
