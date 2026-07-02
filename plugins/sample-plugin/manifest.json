@@ -1,0 +1,8 @@
+{
+  "name": "sample-plugin",
+  "version": "1.0.0",
+  "description": "ตัวอย่าง PayMap Plugin — hook onTransaction เพื่อส่ง webhook",
+  "author": "PayMap",
+  "hooks": ["onTransaction", "onInvoice"],
+  "permissions": ["read:transactions", "read:reports"]
+}

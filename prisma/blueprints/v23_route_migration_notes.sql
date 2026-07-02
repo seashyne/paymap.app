@@ -1,0 +1,6 @@
+-- Blueprint only.
+-- Suggested route migration for workspace-first architecture:
+-- /dashboard           -> /w/:personal-slug/dashboard
+-- /merchant            -> /w/:merchant-slug/dashboard
+-- /business            -> /w/:business-slug/dashboard
+-- Keep legacy routes as redirects during migration.

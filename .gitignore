@@ -1,0 +1,17 @@
+.next
+node_modules
+.env
+.env.production
+.env.local
+.env.*.local
+!.env.example
+coverage
+*.log
+.DS_Store
+release
+tmp
+.codex_tmp
+tsconfig.tsbuildinfo
+
+.vercel
+.env*.local

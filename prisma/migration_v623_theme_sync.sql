@@ -1,0 +1,1 @@
+-- v6.2.3 theme sync uses existing uiPreferences JSON column; no schema change required

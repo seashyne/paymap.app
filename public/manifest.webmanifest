@@ -1,0 +1,33 @@
+{
+  "name": "PayMap",
+  "short_name": "PayMap",
+  "description": "Your private money dashboard. Track income, expenses, cash flow, and real profit locally by default.",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f3f5f9",
+  "theme_color": "#7c78ff",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/logo-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "url": "/dashboard",
+      "icons": [{ "src": "/logo-icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Privacy & Data",
+      "short_name": "Data",
+      "url": "/settings?tab=data",
+      "icons": [{ "src": "/logo-icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+    }
+  ]
+}

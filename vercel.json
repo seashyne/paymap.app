@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "crons": [
+    {
+      "path": "/api/notifications/renewal",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/worker",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}
