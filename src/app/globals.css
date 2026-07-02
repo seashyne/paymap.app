@@ -2344,3 +2344,305 @@ body {
     text-align: left;
   }
 }
+
+.paymap-login-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(96, 165, 250, 0.12), transparent 28%),
+    linear-gradient(180deg, #101418 0%, #0b0d10 100%);
+  color: #f7f3ea;
+}
+
+.paymap-login-topbar {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 9vw;
+  background: rgba(13, 16, 20, 0.9);
+  backdrop-filter: blur(14px);
+}
+
+.paymap-login-brand {
+  display: inline-flex;
+  color: #f7f3ea;
+}
+
+.paymap-login-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #aeb8c6;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.paymap-login-nav a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+.paymap-login-nav a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.paymap-login-nav-primary {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #f7f3ea;
+  color: #111827 !important;
+}
+
+.paymap-login-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(420px, 520px);
+  gap: 28px;
+  width: min(1220px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.paymap-login-copy-panel,
+.paymap-login-form-panel {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(20, 25, 31, 0.82);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+}
+
+.paymap-login-copy-panel {
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.paymap-login-kicker,
+.paymap-login-form-heading span,
+.paymap-login-status-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paymap-login-kicker {
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  border-radius: 999px;
+  background: rgba(96, 165, 250, 0.1);
+  color: #93c5fd;
+  padding: 7px 11px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.paymap-login-copy-panel h1 {
+  max-width: 720px;
+  margin-top: 22px;
+  color: #fff;
+  font-size: clamp(38px, 5.3vw, 68px);
+  font-weight: 950;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.paymap-login-subtitle {
+  max-width: 680px;
+  margin-top: 20px;
+  color: #c7d2e1;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.65;
+}
+
+.paymap-login-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.paymap-login-status-row span {
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #dbe7f5;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.paymap-login-desktop-line {
+  margin-top: 26px;
+  border-left: 3px solid #60a5fa;
+  padding-left: 14px;
+  color: #f7f3ea;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.paymap-login-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.paymap-login-feature {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 16px;
+}
+
+.paymap-login-feature div {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  border-radius: 8px;
+  background: rgba(96, 165, 250, 0.1);
+  color: #93c5fd;
+}
+
+.paymap-login-feature strong {
+  display: block;
+  margin-top: 14px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.paymap-login-feature p {
+  margin-top: 8px;
+  color: #aeb8c6;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.paymap-login-form-panel {
+  align-self: start;
+  padding: 28px;
+}
+
+.paymap-login-form-heading {
+  margin-bottom: 24px;
+}
+
+.paymap-login-form-heading span {
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.paymap-login-form-heading h2 {
+  margin-top: 12px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 950;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.paymap-login-form-heading p {
+  margin-top: 10px;
+  color: #aeb8c6;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.paymap-login-form-panel .modern-input {
+  height: 50px;
+  border-radius: 8px;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(8, 12, 17, 0.72);
+}
+
+.paymap-login-form-panel .auth-social-btn {
+  border-radius: 8px;
+  background: rgba(8, 12, 17, 0.72);
+}
+
+.paymap-login-form-panel label {
+  color: #f7f3ea;
+  font-weight: 850;
+}
+
+.paymap-login-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  color: #9fb0c4;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.paymap-login-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.paymap-login-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 980px) {
+  .paymap-login-topbar {
+    padding: 0 24px;
+  }
+
+  .paymap-login-main {
+    grid-template-columns: 1fr;
+    width: min(720px, calc(100% - 32px));
+    padding: 28px 0;
+  }
+
+  .paymap-login-form-panel {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .paymap-login-topbar {
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .paymap-login-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .paymap-login-nav a:first-child {
+    display: none;
+  }
+
+  .paymap-login-main {
+    width: calc(100% - 24px);
+    padding: 18px 0;
+  }
+
+  .paymap-login-copy-panel,
+  .paymap-login-form-panel {
+    padding: 20px;
+  }
+
+  .paymap-login-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .paymap-login-links {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
