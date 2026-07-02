@@ -51,15 +51,31 @@ export default async function LoginPage({ searchParams }: { searchParams: { next
   const lang = detectSiteLang()
   const t = getSiteMessages(lang).auth
   const modeDescriptions = { personal: t.personalDesc, business: t.businessDesc, merchant: t.merchantDesc }
+  const isThai = lang === "th"
+  const isLao = lang === "lo"
+  const pageCopy = {
+    introTitle: isThai ? "PayMap Local คือทางเข้าหลักของคุณ" : isLao ? "PayMap Local ແມ່ນທາງເຂົ້າຫຼັກຂອງທ່ານ" : "PayMap Local is your main entry point",
+    introBody: isThai
+      ? "เข้าสู่ระบบเพื่อเปิดแดชบอร์ดรายรับ รายจ่าย cash flow และกำไรจริง โดยข้อมูลอยู่ในเครื่องเป็นค่าเริ่มต้น"
+      : isLao
+        ? "ເຂົ້າລະບົບເພື່ອເປີດ dashboard ລາຍຮັບ ລາຍຈ່າຍ cash flow ແລະກໍາໄລຈິງ ໂດຍຂໍ້ມູນຢູ່ໃນອຸປະກອນເປັນຄ່າເລີ່ມຕົ້ນ"
+        : "Sign in to open your income, expense, cash flow, and real profit dashboard. Your financial data stays on this device by default.",
+    formTitle: isThai ? "เข้าสู่ระบบบัญชี PayMap" : isLao ? "ເຂົ້າລະບົບບັນຊີ PayMap" : "Log in to your PayMap account",
+    formBody: isThai
+      ? "ใช้การล็อกอินครั้งเดียวเพื่อเปิด Local Dashboard และจัดการ Cloud Backup เมื่อคุณเปิดเอง"
+      : isLao
+        ? "ໃຊ້ການ login ຄັ້ງດຽວເພື່ອເປີດ Local Dashboard ແລະຈັດການ Cloud Backup ເມື່ອທ່ານເປີດເອງ"
+        : "Use one login to open your Local Dashboard and manage Cloud Backup only when you enable it.",
+  }
 
   return (
     <PublicShell eyebrow={t.loginEyebrow} title={t.loginTitle} description={t.loginDescription} compact>
-      <div className="public-auth-grid-v72">
+      <div className="public-auth-grid-v72 local-register-grid-v72">
         <section className="public-panel-v72 public-panel-v72-soft">
           <div className="public-section-label">{t.modeLabel}</div>
-          <h2 className="public-panel-title">PayMap Local is your main entry point</h2>
+          <h2 className="public-panel-title">{pageCopy.introTitle}</h2>
           <p className="mt-3 text-sm leading-7 text-[var(--text-2)]">
-            เข้าสู่ระบบเพื่อเปิดแดชบอร์ดรายรับ รายจ่าย cash flow และกำไรจริง โดยข้อมูลอยู่ในเครื่องเป็นค่าเริ่มต้น
+            {pageCopy.introBody}
           </p>
           <div className="mt-6 space-y-3">
             {MODES.map(({ key, icon: Icon, label, color, surface, border, action }) => {
@@ -104,16 +120,16 @@ export default async function LoginPage({ searchParams }: { searchParams: { next
           </div>
         </section>
 
-        <section className="public-panel-v72">
+        <section className="public-panel-v72 local-register-form-v72">
           <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-bold" style={{ borderColor: "rgba(79,70,229,0.18)", color: "var(--primary)", background: "rgba(79,70,229,0.10)" }}>
-            <Building2 size={12} /> {t.loginTitle}
+            <HardDrive size={12} /> Local-first account
           </div>
-          <h2 className="mt-5 text-3xl font-black tracking-[-0.02em]">Log in to your PayMap account</h2>
-          <p className="mt-2 text-sm leading-7 text-[var(--text-2)]">ใช้การล็อกอินครั้งเดียวเพื่อเปิด Local Dashboard และจัดการ Cloud Backup เมื่อคุณเปิดเอง</p>
+          <h2 className="mt-5 text-3xl font-black tracking-[-0.02em]">{pageCopy.formTitle}</h2>
+          <p className="mt-2 text-sm leading-7 text-[var(--text-2)]">{pageCopy.formBody}</p>
 
           {errorMsg ? <div className="public-inline-alert-v72 mt-4 border-rose-300/40 bg-rose-50 text-rose-700"><span>{errorMsg}</span></div> : null}
 
-          <div className="mt-6 rounded-[24px] border border-[var(--border)] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--surface-2)_82%,transparent),color-mix(in_srgb,var(--card)_96%,transparent))] p-6 shadow-[var(--shadow-soft)]">
+          <div className="mt-6 local-register-form-card-v72">
             <LoginForm selectedMode={selectedMode} nextPath={requestedNextPath} lang={lang} />
           </div>
 
