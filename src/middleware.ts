@@ -80,7 +80,7 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    "/dashboard/:path*", "/wallets/:path*", "/transactions/:path*", "/settings/:path*", "/profile/:path*", "/billing/:path*",
+    "/wallets/:path*", "/transactions/:path*", "/settings/:path*", "/profile/:path*", "/billing/:path*",
     "/business/:path*", "/merchant/:path*", "/reports/:path*", "/analytics/:path*",
     "/loans/:path*", "/networth/:path*", "/investments/:path*", "/installments/:path*",
     "/simulation/:path*", "/achievements/:path*", "/tax/:path*", "/planner/:path*",

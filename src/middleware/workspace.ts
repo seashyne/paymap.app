@@ -3,7 +3,6 @@ export function requestedWorkspace(pathname: string) {
   if (pathname.startsWith("/business") || pathname.startsWith("/api/business") || pathname.startsWith("/w/")) return "business" as const
   if (pathname.startsWith("/merchant") || pathname.startsWith("/api/merchant")) return "merchant" as const
   if (
-    pathname.startsWith("/dashboard") ||
     pathname.startsWith("/wallets") ||
     pathname.startsWith("/transactions") ||
     pathname.startsWith("/reports") ||

@@ -3315,3 +3315,352 @@ body {
     width: 100%;
   }
 }
+
+.paymap-web-gate {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 38% 18%, rgba(139, 92, 246, 0.18), transparent 24%),
+    radial-gradient(circle at 78% 58%, rgba(37, 99, 235, 0.11), transparent 24%),
+    #090909;
+  color: #f6f4f1;
+}
+
+.paymap-web-gate::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,0.024) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.016) 1px, transparent 1px);
+  background-size: 44px 44px;
+  content: "";
+  opacity: 0.2;
+}
+
+.paymap-web-gate-nav,
+.paymap-web-gate-hero,
+.paymap-web-gate-grid {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.paymap-web-gate-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 92px;
+}
+
+.paymap-web-gate-nav nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: #aaa39b;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.paymap-web-gate-nav a:hover {
+  color: #f6f4f1;
+}
+
+.paymap-web-gate-nav-cta,
+.paymap-web-gate-primary {
+  border-radius: 12px;
+  background: linear-gradient(180deg, #8b5cf6, #7c3aed);
+  color: #fff;
+  box-shadow: 0 18px 48px rgba(124, 58, 237, 0.3);
+}
+
+.paymap-web-gate-nav-cta {
+  padding: 10px 14px;
+}
+
+.paymap-web-gate-hero {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 56px;
+  min-height: 650px;
+  padding-block: 70px 56px;
+}
+
+.paymap-web-gate-kicker,
+.paymap-web-gate-note,
+.paymap-web-gate-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paymap-web-gate-kicker {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #a78bfa;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.paymap-web-gate h1 {
+  max-width: 760px;
+  margin-top: 28px;
+  color: #f6f4f1;
+  font-size: clamp(46px, 6vw, 76px);
+  font-weight: 950;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.paymap-web-gate h1 + p {
+  max-width: 680px;
+  margin-top: 24px;
+  color: #b8b4ae;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.paymap-web-gate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.paymap-web-gate-primary,
+.paymap-web-gate-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 58px;
+  padding-inline: 24px;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.paymap-web-gate-secondary {
+  border: 1px solid #2f2c2a;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #ddd6fe;
+}
+
+.paymap-web-gate-note {
+  margin-top: 18px;
+  color: #928b84;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.paymap-web-gate-preview {
+  overflow: hidden;
+  border: 1px solid #33302d;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #242321, #181817);
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.45);
+}
+
+.paymap-web-gate-windowbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #33302d;
+  padding: 14px 16px;
+  color: #a8a29e;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.paymap-web-gate-windowbar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #3f3b37;
+}
+
+.paymap-web-gate-windowbar strong {
+  margin-left: 8px;
+}
+
+.paymap-web-gate-app {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  min-height: 420px;
+}
+
+.paymap-web-gate-app aside {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid #33302d;
+  background: #161514;
+  padding: 18px;
+}
+
+.paymap-web-gate-app aside span {
+  border-radius: 9px;
+  color: #8f8982;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.paymap-web-gate-app aside span.active {
+  background: rgba(139, 92, 246, 0.18);
+  color: #ddd6fe;
+}
+
+.paymap-web-gate-app section {
+  padding: 28px;
+}
+
+.paymap-web-gate-pill {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #ddd6fe;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.paymap-web-gate-app h2 {
+  max-width: 360px;
+  margin-top: 26px;
+  color: #f6f4f1;
+  font-size: 38px;
+  font-weight: 950;
+  line-height: 1.05;
+}
+
+.paymap-web-gate-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.paymap-web-gate-metrics div,
+.paymap-web-gate-card {
+  border: 1px solid #322f2c;
+  border-radius: 18px;
+  background: #171615;
+}
+
+.paymap-web-gate-metrics div {
+  padding: 18px;
+}
+
+.paymap-web-gate-metrics span {
+  display: block;
+  color: #8f8982;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.paymap-web-gate-metrics strong {
+  display: block;
+  margin-top: 8px;
+  color: #f6f4f1;
+  font-size: 20px;
+}
+
+.paymap-web-gate-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.paymap-web-gate-list span {
+  height: 48px;
+  border: 1px solid #302d2a;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #201f1d, #171615);
+}
+
+.paymap-web-gate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding-bottom: 90px;
+}
+
+.paymap-web-gate-card {
+  padding: 26px;
+}
+
+.paymap-web-gate-card svg {
+  color: #a78bfa;
+}
+
+.paymap-web-gate-card h2 {
+  margin-top: 18px;
+  color: #f6f4f1;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+.paymap-web-gate-card p {
+  margin-top: 10px;
+  color: #9d968e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 980px) {
+  .paymap-web-gate-hero,
+  .paymap-web-gate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .paymap-web-gate-hero {
+    min-height: auto;
+    padding-block: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .paymap-web-gate-nav,
+  .paymap-web-gate-hero,
+  .paymap-web-gate-grid {
+    width: min(100% - 24px, 1120px);
+  }
+
+  .paymap-web-gate-nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding-block: 18px;
+  }
+
+  .paymap-web-gate-nav nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .paymap-web-gate-actions,
+  .paymap-web-gate-primary,
+  .paymap-web-gate-secondary {
+    width: 100%;
+  }
+
+  .paymap-web-gate-app {
+    grid-template-columns: 1fr;
+  }
+
+  .paymap-web-gate-app aside {
+    border-right: 0;
+    border-bottom: 1px solid #33302d;
+  }
+
+  .paymap-web-gate-metrics {
+    grid-template-columns: 1fr;
+  }
+}

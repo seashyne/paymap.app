@@ -24,7 +24,7 @@ function getLandingCopy(lang: SiteLang) {
         ? "ใช้ PayMap บนเว็บได้ แต่ประสบการณ์ที่ดีที่สุดคือแอป Windows ที่ข้อมูลอยู่กับคุณ ติดตามรายรับ รายจ่าย กระแสเงินสด และกำไรจริง โดย Cloud Backup เป็นตัวเลือก"
         : "Use PayMap on the web, but the best experience is the Windows app where your data stays with you. Track income, expenses, cash flow, and real profit with optional Cloud Backup.",
       primary: isThai ? "ดาวน์โหลดแอป Windows" : "Download Windows app",
-      secondary: isThai ? "ลองบนเว็บก่อน" : "Try on the web first",
+      secondary: isThai ? "ดูตัวอย่างบนเว็บ" : "Preview in browser",
       note: isThai
         ? "PayMap จะไม่อัปโหลดข้อมูลการเงินของคุณ เว้นแต่คุณเปิด Cloud Backup เอง"
         : "PayMap does not upload your financial data unless you enable Cloud Backup.",

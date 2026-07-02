@@ -38,29 +38,29 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
           : "Download PayMap Desktop for Windows",
     description: blocked
       ? isThai
-        ? "เพื่อให้ workflow, table system, POS, accounting และ analytics ทำงานได้ครบ ระบบจึงเปิดใช้เฉพาะหน้าจอ desktop ตอนนี้ หากเปิดจากโทรศัพท์หรือ iPad จะถูกพามาหน้านี้"
-        : "To keep workflow, tables, POS, accounting, and analytics working correctly, PayMap currently runs only on desktop-sized screens. Phones and tablets are redirected here."
+        ? "PayMap ใช้งานจริงผ่านแอป Windows เพื่อให้ local vault, export/import และการทำงาน offline ชัดเจนกว่าเว็บ หากเปิดจากโทรศัพท์หรือ iPad จะถูกพามาหน้านี้"
+        : "PayMap's real workspace runs in the Windows app so local vaults, export/import, and offline use stay clear. Phones and tablets are redirected here."
       : isThai
         ? "ใช้ PayMap บนเว็บได้ แต่ประสบการณ์ที่ดีที่สุดคือแอป Windows ที่ข้อมูลอยู่กับคุณ ข้อมูลการเงินอยู่ในเครื่องเป็นค่าเริ่มต้น และ Cloud Backup เป็นตัวเลือก"
         : "Use PayMap on the web, but the best experience is the Windows app where your data stays with you. Financial data stays on your device by default, and Cloud Backup is optional.",
-    ctaLabel: isThai ? "เปิดหน้าเข้าสู่ระบบ" : "Open desktop login",
+    ctaLabel: isThai ? "จัดการบัญชี Cloud Backup" : "Manage Cloud Backup account",
     back: isThai ? "กลับไปหน้าที่พยายามเปิด" : "Back to the page you tried to open",
-    whyTitle: isThai ? "ทำไมถึงบังคับใช้เฉพาะ PC" : "Why desktop is required",
+    whyTitle: isThai ? "ทำไมต้องเน้น Windows app" : "Why the Windows app comes first",
     whyBody: isThai
-      ? "PayMap เน้น table system, accounting workbench, inventory, POS และ command palette บนหน้าจอขนาดใหญ่ การปิด mobile/tablet ช่วยลด layout bug, interaction ซ้อน และการใช้งานผิด flow"
-      : "PayMap is optimized for table systems, accounting workbenches, inventory, POS, and command-palette workflows on larger screens. Limiting phone and tablet access reduces layout bugs and conflicting interactions.",
+      ? "PayMap เป็น private money dashboard ที่ข้อมูลอยู่กับคุณ การทำเป็นแอป Windows ทำให้ storage, backup, offline และไฟล์ .paymap.json เข้าใจง่ายกว่าเว็บที่ต้องผูกกับ login"
+      : "PayMap is a private money dashboard where your data stays with you. A Windows app makes storage, backups, offline use, and .paymap.json files clearer than a login-first web app.",
     points: isThai
       ? [
-          ["PC workspace shell", "Sidebar, command palette และ data table ถูกออกแบบให้ใช้ต่อเนื่องบนจอ desktop"],
-          ["Stable POS flow", "หน้าขายและ checkout rail ทำงานได้เร็วและไม่บีบเนื้อหาบนจอเล็ก"],
-          ["Accounting readability", "รายงานและ reconciliation อ่านได้ครบโดยไม่ต้องย่อหรือเลื่อนซ้อนหลายชั้น"],
-          ["Lower QA surface", "ลดจำนวน breakpoint ที่ต้องดูแลเพื่อโฟกัสให้ระบบหลักใช้งานได้จริงก่อน"],
+          ["Local vault ชัดเจน", "ข้อมูลการเงินทำงานบนเครื่องเป็นค่าเริ่มต้น และ Cloud Backup ไม่เปิดเอง"],
+          ["Offline ใช้งานจริง", "เปิดแอปเพื่อบันทึกรายรับ รายจ่าย และดู cash flow ได้โดยไม่ต้องพึ่งเว็บตลอดเวลา"],
+          ["Backup ง่าย", "Export/Import ไฟล์ .paymap.json ได้เอง และย้ายเครื่องได้เมื่อพร้อม"],
+          ["เว็บไม่ทำให้สับสน", "เว็บเหลือหน้าที่ดาวน์โหลด ราคา เอกสาร และบัญชี Cloud Backup เท่านั้น"],
         ]
       : [
-          ["PC workspace shell", "Sidebar, command palette, and data tables are tuned for longer desktop sessions."],
-          ["Stable POS flow", "Sales and checkout rails stay fast and readable without being compressed for small screens."],
-          ["Accounting readability", "Reports and reconciliation remain readable without stacked scrolling or collapsed content."],
-          ["Lower QA surface", "Fewer breakpoints make it easier to keep the main product stable and production-ready."],
+          ["Clear local vault", "Financial data stays on the device by default, and Cloud Backup never turns itself on."],
+          ["Real offline use", "Open the app to record income, expenses, and cash flow without depending on the web."],
+          ["Simple backups", "Export/import portable .paymap.json files and move devices when you are ready."],
+          ["Less web confusion", "The website stays focused on downloads, pricing, docs, and Cloud Backup accounts."],
         ],
   }
 
@@ -83,16 +83,16 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-blue-200">
             <ShieldCheck size={14} /> Local-first Windows app
           </div>
-          <h2 className="text-3xl font-black text-[var(--text)]">{isThai ? "ใช้บนเว็บได้ ทำงานจริงดีที่สุดบน Windows" : "Works on web. Best as a Windows app."}</h2>
+          <h2 className="text-3xl font-black text-[var(--text)]">{isThai ? "เว็บคือหน้าดาวน์โหลด แอป Windows คือตัวทำงานจริง" : "The website is for downloads. The Windows app is the real workspace."}</h2>
           <p className="text-sm leading-7 text-[var(--text-2)]">
             {isThai
-              ? "เวอร์ชัน Desktop เปิดหน้า local vault สำหรับบันทึกรายรับ รายจ่าย กำไรจริง และสำรองข้อมูลเป็น .paymap.json โดยไม่ต้องอัปโหลดข้อมูลขึ้น cloud ตั้งแต่แรก"
-              : "The Desktop app opens a local vault for income, expenses, real profit, and portable .paymap.json backups without uploading financial data by default."}
+              ? "เวอร์ชัน Desktop เปิด local vault สำหรับบันทึกรายรับ รายจ่าย กระแสเงินสด กำไรจริง และสำรองข้อมูลเป็น .paymap.json โดยไม่ต้องอัปโหลดข้อมูลขึ้น cloud ตั้งแต่แรก"
+              : "The Desktop app opens a local vault for income, expenses, cash flow, real profit, and portable .paymap.json backups without uploading financial data by default."}
           </p>
           <div className="grid gap-3 md:grid-cols-2">
             {(isThai
               ? [
-                  ["Obsidian-style workspace", "Sidebar, vault, search และ quick capture สำหรับงานการเงินประจำวัน"],
+                  ["Obsidian-style workspace", "Sidebar, vault และ quick capture สำหรับงานการเงินประจำวัน"],
                   ["Local-first storage", "ข้อมูลการเงินอยู่ในเครื่องด้วย IndexedDB และ export/import ได้"],
                   ["Windows installer", "แพ็กเป็น PayMap-Setup-15.3.1.exe สำหรับติดตั้งบน Windows"],
                   ["Cloud optional", "Cloud Backup ไม่เปิดเอง ต้องเปิดจากผู้ใช้ก่อนเท่านั้น"],
@@ -120,7 +120,7 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
             cta: 'Download from GitHub Releases',
           }, {
             title: 'Desktop workspace preview',
-            desc: 'ลองหน้า PayMap Desktop ใน browser ก่อนแพ็กหรือติดตั้งจริง',
+            desc: 'ดูตัวอย่าง PayMap Desktop ใน browser ก่อนแพ็กหรือติดตั้งจริง',
             icon: Monitor,
             href: '/desktop',
             cta: 'Open preview',
@@ -128,8 +128,8 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
             title: '.paymap.json backups',
             desc: 'ส่งออก นำเข้า และย้ายข้อมูลการเงินส่วนตัวโดยไม่ต้องเปิด Cloud Backup',
             icon: Download,
-            href: '/settings?tab=data',
-            cta: 'Privacy & Data',
+            href: '/desktop',
+            cta: 'Preview backup flow',
           }].map((item) => {
             const Icon = item.icon
             return (

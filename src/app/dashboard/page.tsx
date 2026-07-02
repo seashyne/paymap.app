@@ -1,102 +1,110 @@
 import Link from "next/link"
-import { Download, HardDrive, LayoutGrid, Settings, ShieldCheck, Wallet } from "lucide-react"
-import { requireModePage } from "@/lib/authz"
-import { prisma } from "@/lib/prisma"
-import { getCurrentPlan } from "@/lib/subscription/current-plan"
-import CleanMoneyDashboard from "@/components/local-first/CleanMoneyDashboard"
-import { LogoFull, LogoIcon } from "@/components/ui/Logo"
-import LogoutButton from "@/components/auth/LogoutButton"
-import QuickAdd from "@/components/ui/QuickAdd"
-import DashboardRefreshOnQuickAdd from "@/components/local-first/DashboardRefreshOnQuickAdd"
+import { ArrowRight, Cloud, Download, FileDown, HardDrive, MonitorDown, ShieldCheck } from "lucide-react"
+import { LogoFull } from "@/components/ui/Logo"
 
-export default async function DashboardPage() {
-  const user = await requireModePage("personal")
-  const [walletCount, txCount, incomeAgg, expenseAgg, recent] = await Promise.all([
-    prisma.wallet.count({ where: { userId: user.id } }),
-    prisma.transaction.count({ where: { userId: user.id, deletedAt: null } }),
-    prisma.transaction.aggregate({ where: { userId: user.id, type: "income", deletedAt: null }, _sum: { amount: true } }),
-    prisma.transaction.aggregate({ where: { userId: user.id, type: "expense", deletedAt: null }, _sum: { amount: true } }),
-    prisma.transaction.findMany({ where: { userId: user.id, deletedAt: null }, orderBy: { happenedAt: "desc" }, take: 12, include: { category: true } }),
-  ])
+export const metadata = {
+  title: "PayMap Windows App",
+  description: "Download PayMap for Windows. The real local-first money dashboard runs on your device.",
+}
 
-  const income = Number(incomeAgg._sum.amount ?? 0)
-  const expense = Number(expenseAgg._sum.amount ?? 0)
-  const balance = income - expense
-  const currency = user.currency ?? "THB"
-  const formatMoney = (value: number) => new Intl.NumberFormat("en-US", { style: "currency", currency, maximumFractionDigits: 0 }).format(value)
-  const formatRowMoney = (value: number, type: string) => {
-    const formatted = new Intl.NumberFormat("en-US", { style: "currency", currency, maximumFractionDigits: 2 }).format(value)
-    return type === "income" ? `+${formatted}` : `-${formatted}`
-  }
-
-  const rows = recent.map((item) => ({
-    kind: (item.type === "income" ? "income" : "expense") as "income" | "expense",
-    id: item.id,
-    date: new Date(item.happenedAt).toLocaleDateString(),
-    note: item.note ?? (item.type === "income" ? "รายรับ" : "รายจ่าย"),
-    category: item.category?.name ?? "ไม่ระบุหมวด",
-    status: "บันทึกแล้ว",
-    amount: formatRowMoney(Number(item.amount ?? 0), item.type),
-  }))
-  const plan = String(getCurrentPlan(user, "personal"))
-
+export default function DashboardPage() {
   return (
-    <div className="local-dashboard-shell">
-      <aside className="local-dashboard-sidebar">
-        <Link href="/" className="local-dashboard-brand" aria-label="PayMap home">
+    <main className="paymap-web-gate">
+      <header className="paymap-web-gate-nav">
+        <Link href="/" aria-label="PayMap home">
           <LogoFull height={32} />
         </Link>
-
-        <div className="local-dashboard-sidebar-card">
-          <div className="local-dashboard-eyebrow">PayMap Local</div>
-          <h2>แดชบอร์ดการเงินส่วนตัว</h2>
-          <p>ข้อมูลอยู่ในเครื่องเป็นค่าเริ่มต้น และ Cloud Backup ปิดอยู่จนกว่าคุณจะเปิดเอง</p>
-        </div>
-
-        <nav className="local-dashboard-nav" aria-label="PayMap dashboard">
-          <Link href="/dashboard" className="active"><LayoutGrid size={17} /> ภาพรวม</Link>
-          <Link href="/wallets"><Wallet size={17} /> บัญชี</Link>
-          <Link href="/settings?tab=data"><ShieldCheck size={17} /> ข้อมูล</Link>
-          <Link href="/desktop"><Download size={17} /> แอป Windows</Link>
-          <Link href="/settings"><Settings size={17} /> ตั้งค่า</Link>
+        <nav aria-label="PayMap web">
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/login">Cloud Backup account</Link>
+          <Link href="/download" className="paymap-web-gate-nav-cta">Download Windows</Link>
         </nav>
+      </header>
 
-        <div className="local-dashboard-sidebar-footer">
-          <div>
-            <div className="local-dashboard-eyebrow">Plan</div>
-            <strong>{plan}</strong>
+      <section className="paymap-web-gate-hero">
+        <div>
+          <div className="paymap-web-gate-kicker">
+            <MonitorDown size={15} />
+            PayMap works best as a Windows app
           </div>
-          <LogoutButton />
+          <h1>แดชบอร์ดการเงินจริงอยู่ในแอป PayMap สำหรับ Windows</h1>
+          <p>
+            เว็บนี้ใช้สำหรับดาวน์โหลด ดูราคา และจัดการบัญชี Cloud Backup เท่านั้น
+            ข้อมูลการเงินของคุณอยู่ในเครื่องเป็นค่าเริ่มต้นเมื่อใช้แอป Windows
+          </p>
+          <div className="paymap-web-gate-actions">
+            <Link href="/download" className="paymap-web-gate-primary">
+              ดาวน์โหลด PayMap for Windows <Download size={18} />
+            </Link>
+            <Link href="/desktop" className="paymap-web-gate-secondary">
+              ดูตัวอย่างแอป <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div className="paymap-web-gate-note">
+            <ShieldCheck size={15} />
+            PayMap จะไม่อัปโหลดข้อมูลการเงินของคุณ เว้นแต่คุณเปิด Cloud Backup เอง
+          </div>
         </div>
-      </aside>
 
-      <div className="local-dashboard-workspace">
-        <header className="local-dashboard-topbar">
-          <div className="local-dashboard-title">
-            <span><LogoIcon size={18} /> PayMap Local</span>
-            <h1>แดชบอร์ดการเงินของคุณ</h1>
-            <p>ติดตามรายรับ รายจ่าย กระแสเงินสด และกำไรจริง ใช้บนเว็บได้ และเหมาะที่สุดบนแอป Windows</p>
+        <div className="paymap-web-gate-preview" aria-label="PayMap Windows app preview">
+          <div className="paymap-web-gate-windowbar">
+            <span />
+            <span />
+            <span />
+            <strong>PayMap Desktop</strong>
           </div>
-          <div className="local-dashboard-status">
-            <span><HardDrive size={14} /> Local Only</span>
-            <span>Cloud Backup Off</span>
+          <div className="paymap-web-gate-app">
+            <aside>
+              <span className="active">Overview</span>
+              <span>Wallets</span>
+              <span>Cash flow</span>
+              <span>Privacy & Data</span>
+            </aside>
+            <section>
+              <div className="paymap-web-gate-pill"><HardDrive size={14} /> Local Only</div>
+              <h2>Your private money dashboard.</h2>
+              <div className="paymap-web-gate-metrics">
+                <div><span>Balance</span><strong>THB 42,180</strong></div>
+                <div><span>Cash flow</span><strong>+THB 8,450</strong></div>
+              </div>
+              <div className="paymap-web-gate-list">
+                <span />
+                <span />
+                <span />
+              </div>
+            </section>
           </div>
-        </header>
+        </div>
+      </section>
 
-        <main className="local-dashboard-content">
-          <CleanMoneyDashboard
-            userName={user.name ?? "Curator"}
-            totalBalance={formatMoney(balance)}
-            walletCount={String(walletCount)}
-            income={formatMoney(income)}
-            expense={formatMoney(expense)}
-            rows={rows}
-            transactionCount={String(txCount)}
-          />
-        </main>
-      </div>
-      <QuickAdd />
-      <DashboardRefreshOnQuickAdd />
-    </div>
+      <section className="paymap-web-gate-grid" aria-label="What runs where">
+        {[
+          {
+            icon: HardDrive,
+            title: "Windows app = งานจริง",
+            body: "บันทึกรายรับ รายจ่าย กระแสเงินสด และกำไรจริงใน local vault บนเครื่องคุณ",
+          },
+          {
+            icon: FileDown,
+            title: ".paymap.json backup",
+            body: "ส่งออก นำเข้า และย้ายข้อมูลได้เอง โดยไม่ต้องเปิด Cloud Backup",
+          },
+          {
+            icon: Cloud,
+            title: "Cloud Backup เป็นตัวเลือก",
+            body: "เข้าสู่ระบบเฉพาะเมื่อต้องการบัญชี Cloud Backup, Sync หรือจัดการแพ็กเกจ",
+          },
+        ].map((item) => {
+          const Icon = item.icon
+          return (
+            <article key={item.title} className="paymap-web-gate-card">
+              <Icon size={20} />
+              <h2>{item.title}</h2>
+              <p>{item.body}</p>
+            </article>
+          )
+        })}
+      </section>
+    </main>
   )
 }

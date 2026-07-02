@@ -1,8 +1,8 @@
 export const authPages = ["/login", "/register"]
-export const publicPages = ["/", "/terms", "/privacy", "/legal", "/pay", "/guide", "/help", "/status", "/pricing", "/download", "/forgot-password", "/reset-password"]
+export const publicPages = ["/", "/dashboard", "/terms", "/privacy", "/legal", "/pay", "/guide", "/help", "/status", "/pricing", "/download", "/forgot-password", "/reset-password"]
 
 export const protectedPaths = [
-  "/dashboard", "/wallets", "/transactions", "/settings", "/profile", "/billing",
+  "/wallets", "/transactions", "/settings", "/profile", "/billing",
   "/business", "/merchant", "/reports", "/analytics", "/planner", "/tax",
   "/loans", "/networth", "/investments", "/installments", "/simulation", "/achievements",
   "/workspace", "/onboarding", "/enterprise", "/admin",

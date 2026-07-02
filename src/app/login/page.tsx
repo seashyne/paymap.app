@@ -16,7 +16,7 @@ function getLoginCopy(lang: string) {
     return {
       badge: "Local-first account",
       title: "เข้าสู่ระบบ PayMap",
-      subtitle: "เปิดแดชบอร์ดรายรับ รายจ่าย กระแสเงินสด และกำไรจริงของคุณ",
+      subtitle: "ใช้บัญชีนี้สำหรับ Cloud Backup, Sync และการจัดการแพ็กเกจ ส่วนข้อมูลจริงทำงานดีที่สุดในแอป Windows",
       desktopLine: "ใช้ PayMap บนเว็บได้ แต่ประสบการณ์ที่ดีที่สุดคือแอป Windows ที่ข้อมูลอยู่กับคุณ",
       localOnly: "Local Only",
       backupOff: "Cloud Backup Off",
@@ -27,9 +27,9 @@ function getLoginCopy(lang: string) {
       backupTitle: "สำรองข้อมูลได้เมื่อพร้อม",
       backupBody: "Export/Import ไฟล์ .paymap.json หรือเปิด Cloud Backup ภายหลังได้",
       formTitle: "ยินดีต้อนรับกลับ",
-      formBody: "เข้าสู่ระบบเพื่อกลับไปยัง private money dashboard ของคุณ",
+      formBody: "เข้าสู่ระบบเพื่อจัดการ Cloud Backup และบัญชี PayMap ของคุณ",
       download: "ดาวน์โหลด Windows",
-      web: "ลองบนเว็บ",
+      web: "ดูตัวอย่าง",
     }
   }
 
@@ -37,7 +37,7 @@ function getLoginCopy(lang: string) {
     return {
       badge: "Local-first account",
       title: "ເຂົ້າລະບົບ PayMap",
-      subtitle: "ເປີດ dashboard ລາຍຮັບ ລາຍຈ່າຍ cash flow ແລະກໍາໄລຈິງຂອງທ່ານ",
+      subtitle: "ໃຊ້ບັນຊີນີ້ສໍາລັບ Cloud Backup, Sync ແລະ package. ວຽກຈິງເໝາະກັບແອັບ Windows.",
       desktopLine: "ໃຊ້ PayMap ເທິງເວັບໄດ້ ແຕ່ປະສົບການທີ່ດີທີ່ສຸດແມ່ນແອັບ Windows ທີ່ຂໍ້ມູນຢູ່ກັບທ່ານ",
       localOnly: "Local Only",
       backupOff: "Cloud Backup Off",
@@ -48,16 +48,16 @@ function getLoginCopy(lang: string) {
       backupTitle: "Backup ໄດ້ເມື່ອພ້ອມ",
       backupBody: "Export/Import ໄຟລ໌ .paymap.json ຫຼືເປີດ Cloud Backup ພາຍຫຼັງໄດ້",
       formTitle: "ຍິນດີຕ້ອນຮັບກັບມາ",
-      formBody: "ເຂົ້າລະບົບເພື່ອກັບໄປຫາ private money dashboard ຂອງທ່ານ",
+      formBody: "ເຂົ້າລະບົບເພື່ອຈັດການ Cloud Backup ແລະບັນຊີ PayMap.",
       download: "ດາວໂຫຼດ Windows",
-      web: "ລອງໃນເວັບ",
+      web: "ເບິ່ງ preview",
     }
   }
 
   return {
     badge: "Local-first account",
     title: "Log in to PayMap",
-    subtitle: "Open your income, expense, cash flow, and real profit dashboard.",
+    subtitle: "Use this account for Cloud Backup, Sync, and plan management. Your real money workspace is best in the Windows app.",
     desktopLine: "PayMap works on the web, but the best experience is the Windows app where your data stays with you.",
     localOnly: "Local Only",
     backupOff: "Cloud Backup Off",
@@ -68,9 +68,9 @@ function getLoginCopy(lang: string) {
     backupTitle: "Backup when you are ready",
     backupBody: "Export/import .paymap.json backups or turn on Cloud Backup later.",
     formTitle: "Welcome back",
-    formBody: "Sign in to return to your private money dashboard.",
+    formBody: "Sign in to manage Cloud Backup and your PayMap account.",
     download: "Download Windows",
-    web: "Try on web",
+    web: "Preview",
   }
 }
 
@@ -117,7 +117,7 @@ export default async function LoginPage({ searchParams }: { searchParams: { next
         </Link>
         <nav className="paymap-login-nav" aria-label="PayMap">
           <Link href="/pricing">{pageCopy.pricing}</Link>
-          <Link href="/desktop">{pageCopy.download}</Link>
+            <Link href="/download">{pageCopy.download}</Link>
           <Link href="/register?mode=personal" className="paymap-login-nav-primary">
             {pageCopy.web}
           </Link>
