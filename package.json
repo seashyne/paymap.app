@@ -1,6 +1,8 @@
 {
   "name": "paymap",
   "version": "15.3.1",
+  "description": "PayMap is a local-first private money dashboard for Windows.",
+  "author": "Seashyne",
   "private": true,
   "main": "electron/main.cjs",
   "scripts": {
@@ -10,6 +12,7 @@
     "desktop:pack:win": "bun run build && electron-builder --win nsis",
     "desktop:dir:win": "bun run build && electron-builder --win dir",
     "desktop:portable:win": "bun run build && node scripts/package-windows-portable.cjs",
+    "release:windows": "bun run desktop:portable:win",
     "postinstall": "prisma generate",
     "start": "next start",
     "db:generate": "prisma generate",

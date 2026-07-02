@@ -1,27 +1,52 @@
-# PayMap v10 Production Architecture Foundation
+# PayMap
 
-PayMap v10 is a production-oriented SaaS foundation for Personal, Business, and Merchant workspaces.
+PayMap is a local-first private money dashboard for Windows.
 
-## What changed in this pack
-- Introduced v10 folder architecture: `app`, `features`, `shared`, `server`, `middleware`, `instrumentation`
-- Added server-side service/repository foundation
-- Added shared design system entrypoints and alias paths
-- Added environment verification and smoke-test scripts
-- Added architecture docs, migration roadmap, and runbooks
-- Preserved backward compatibility with the existing v9 route surface where possible
+It is designed to feel like a focused desktop workspace: track income, expenses, cash flow, and real profit while keeping financial data on the device by default. Cloud Backup and Cloud Sync are optional paid features, not the default storage path.
 
-## Commands
+## Product Direction
+
+- Windows app first
+- Local-first financial records
+- `.paymap.json` export/import backups
+- Optional Cloud Backup with explicit user confirmation
+- Web/PWA kept for preview, account, pricing, and support pages
+
+## Development
+
 ```bash
-npm install
-npm run verify-env
-npm run typecheck
-npm run build
-npm run smoke
+bun install
+bun run typecheck
+bun run build
 ```
 
-## Important note
-This pack is a **v10 foundation refactor pack**, not a claim that every existing feature has been fully migrated to the new folder layout. Existing v9 routes still remain in place for compatibility, while the new v10 structure is ready for progressive migration.
+Preview the desktop workspace in the browser:
 
+```bash
+bun run dev
+```
 
-## v11.2
-Shared dashboard modules extracted into `src/shared/components` to reduce versioned UI folders in the main repo surface.
+Open `http://localhost:3000/desktop`.
+
+## Windows App
+
+Run the Electron desktop shell in development:
+
+```bash
+bun run dev
+bun run desktop:dev
+```
+
+Build the portable Windows app:
+
+```bash
+bun run release:windows
+```
+
+The app is created at:
+
+```text
+release/PayMap-win-x64/PayMap.exe
+```
+
+GitHub Releases are the primary distribution channel for the Windows app. Push a tag such as `v15.3.1` to build and attach `PayMap-win-x64.zip` through `.github/workflows/windows-release.yml`.

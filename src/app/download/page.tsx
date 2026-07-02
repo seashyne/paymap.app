@@ -73,7 +73,7 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
       ctaLabel={copy.ctaLabel}
     >
       <div className="flex flex-wrap gap-3">
-        <Link href="/desktop" className="public-btn public-btn-primary">Open desktop preview <Download size={16} /></Link>
+        <Link href="https://github.com/seashyne/paymap.app/releases/latest" className="public-btn public-btn-primary">Download Windows app <Download size={16} /></Link>
         <Link href="/desktop" className="public-btn public-btn-ghost">Preview desktop workspace <ArrowRight size={16} /></Link>
         <Link href={from} className="public-btn public-btn-ghost">{copy.back}</Link>
       </div>
@@ -116,8 +116,8 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
             title: 'Windows Desktop App',
             desc: 'ติดตั้ง PayMap เป็นโปรแกรมบน Windows พร้อม local vault สำหรับข้อมูลการเงินส่วนตัว',
             icon: Laptop,
-            href: '/desktop',
-            cta: 'Open preview',
+            href: 'https://github.com/seashyne/paymap.app/releases/latest',
+            cta: 'Download from GitHub Releases',
           }, {
             title: 'Desktop workspace preview',
             desc: 'ลองหน้า PayMap Desktop ใน browser ก่อนแพ็กหรือติดตั้งจริง',
