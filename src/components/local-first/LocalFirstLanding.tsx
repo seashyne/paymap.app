@@ -18,13 +18,13 @@ function getLandingCopy(lang: SiteLang) {
       start: isThai ? "เริ่มแบบ Local Only" : "Start Local Only",
     },
     hero: {
-      badge: "Local-first · Privacy-first · Installable PWA",
+      badge: isThai ? "Web + Windows app · Local-first" : "Web + Windows app · Local-first",
       title: isThai ? "แดชบอร์ดการเงินส่วนตัวที่ข้อมูลอยู่กับคุณ" : "Your private money dashboard.",
       body: isThai
-        ? "ติดตามรายรับ รายจ่าย กระแสเงินสด และกำไรจริง โดยข้อมูลจะอยู่ในเครื่องเป็นค่าเริ่มต้น และเลือกเปิด Cloud Backup ได้เมื่อต้องการ"
-        : "Track income, expenses, cash flow, and real profit. Your data stays on your device by default, and cloud backup is optional.",
-      primary: isThai ? "เริ่มใช้งานแบบ Local Only" : "Start Local Only",
-      secondary: isThai ? "ดูวิธีสำรองข้อมูล" : "See backup options",
+        ? "ใช้ PayMap บนเว็บได้ แต่ประสบการณ์ที่ดีที่สุดคือแอป Windows ที่ข้อมูลอยู่กับคุณ ติดตามรายรับ รายจ่าย กระแสเงินสด และกำไรจริง โดย Cloud Backup เป็นตัวเลือก"
+        : "Use PayMap on the web, but the best experience is the Windows app where your data stays with you. Track income, expenses, cash flow, and real profit with optional Cloud Backup.",
+      primary: isThai ? "ดาวน์โหลดแอป Windows" : "Download Windows app",
+      secondary: isThai ? "ลองบนเว็บก่อน" : "Try on the web first",
       note: isThai
         ? "PayMap จะไม่อัปโหลดข้อมูลการเงินของคุณ เว้นแต่คุณเปิด Cloud Backup เอง"
         : "PayMap does not upload your financial data unless you enable Cloud Backup.",
@@ -114,10 +114,10 @@ export default async function LocalFirstLanding() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{copy.hero.body}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/register?mode=personal" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#111827] px-7 py-4 text-base font-black text-white">
+              <Link href="/download" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#111827] px-7 py-4 text-base font-black text-white">
                 {copy.hero.primary} <ArrowRight size={18} />
               </Link>
-              <Link href="#backup" className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-4 text-base font-black text-[#111827]">
+              <Link href="/desktop" className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-4 text-base font-black text-[#111827]">
                 {copy.hero.secondary}
               </Link>
             </div>

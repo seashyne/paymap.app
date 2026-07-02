@@ -1,7 +1,7 @@
 {
   "name": "paymap",
   "version": "15.3.1",
-  "description": "PayMap is a local-first private money dashboard for Windows.",
+  "description": "PayMap works on web, but is best as a Windows app where your data stays with you.",
   "author": "Seashyne",
   "private": true,
   "main": "electron/main.cjs",

@@ -1,12 +1,14 @@
 # PayMap
 
-PayMap is a local-first private money dashboard for Windows.
+PayMap is a local-first private money dashboard for web and Windows.
 
-It is designed to feel like a focused desktop workspace: track income, expenses, cash flow, and real profit while keeping financial data on the device by default. Cloud Backup and Cloud Sync are optional paid features, not the default storage path.
+ใช้ PayMap บนเว็บได้ แต่ประสบการณ์ที่ดีที่สุดคือแอป Windows ที่ข้อมูลอยู่กับคุณ.
+
+PayMap is designed to feel like a focused desktop workspace: track income, expenses, cash flow, and real profit while keeping financial data on the device by default. Cloud Backup and Cloud Sync are optional paid features, not the default storage path.
 
 ## Product Direction
 
-- Windows app first
+- Web preview + Windows app first
 - Local-first financial records
 - `.paymap.json` export/import backups
 - Optional Cloud Backup with explicit user confirmation

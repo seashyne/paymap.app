@@ -41,8 +41,8 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
         ? "เพื่อให้ workflow, table system, POS, accounting และ analytics ทำงานได้ครบ ระบบจึงเปิดใช้เฉพาะหน้าจอ desktop ตอนนี้ หากเปิดจากโทรศัพท์หรือ iPad จะถูกพามาหน้านี้"
         : "To keep workflow, tables, POS, accounting, and analytics working correctly, PayMap currently runs only on desktop-sized screens. Phones and tablets are redirected here."
       : isThai
-        ? "ติดตั้ง PayMap เป็นแอป Windows แบบ local-first ได้เหมือน workspace ส่วนตัว ข้อมูลการเงินอยู่ในเครื่องเป็นค่าเริ่มต้น และ Cloud Backup เป็นตัวเลือก"
-        : "Install PayMap as a local-first Windows desktop app. Your financial data stays on your device by default, and Cloud Backup is optional.",
+        ? "ใช้ PayMap บนเว็บได้ แต่ประสบการณ์ที่ดีที่สุดคือแอป Windows ที่ข้อมูลอยู่กับคุณ ข้อมูลการเงินอยู่ในเครื่องเป็นค่าเริ่มต้น และ Cloud Backup เป็นตัวเลือก"
+        : "Use PayMap on the web, but the best experience is the Windows app where your data stays with you. Financial data stays on your device by default, and Cloud Backup is optional.",
     ctaLabel: isThai ? "เปิดหน้าเข้าสู่ระบบ" : "Open desktop login",
     back: isThai ? "กลับไปหน้าที่พยายามเปิด" : "Back to the page you tried to open",
     whyTitle: isThai ? "ทำไมถึงบังคับใช้เฉพาะ PC" : "Why desktop is required",
@@ -83,7 +83,7 @@ export default function DownloadPage({ searchParams }: { searchParams?: { deskto
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-blue-200">
             <ShieldCheck size={14} /> Local-first Windows app
           </div>
-          <h2 className="text-3xl font-black text-[var(--text)]">{isThai ? "PayMap เหมือน workspace การเงินส่วนตัว" : "PayMap as a private finance workspace"}</h2>
+          <h2 className="text-3xl font-black text-[var(--text)]">{isThai ? "ใช้บนเว็บได้ ทำงานจริงดีที่สุดบน Windows" : "Works on web. Best as a Windows app."}</h2>
           <p className="text-sm leading-7 text-[var(--text-2)]">
             {isThai
               ? "เวอร์ชัน Desktop เปิดหน้า local vault สำหรับบันทึกรายรับ รายจ่าย กำไรจริง และสำรองข้อมูลเป็น .paymap.json โดยไม่ต้องอัปโหลดข้อมูลขึ้น cloud ตั้งแต่แรก"
